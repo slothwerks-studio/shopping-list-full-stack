@@ -11,7 +11,7 @@
 
 module.exports = function() {
 
-    var db = {}
+    var db = {};
 
     var collection = [];
     var nextId = 1;
