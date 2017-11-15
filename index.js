@@ -1,5 +1,7 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+const bodyParser = require('body-parser');
+
+const app = express();
 
 var database = require("./in-memory-database")();
 
@@ -8,13 +10,13 @@ database.init([
 ]);
 
 app.get('/', function (req, res){
-  res.send("Yo!");
-  // res.send(database.readAll());
+  // res.send("Yo!");
+  res.send(database.readAll());
 });
 
 app.post('/', function(req,res) {
-	//datab	
-  	res.send('You posted!');
+	database.create("a new string");
+  	res.send(database.readAll());
 });
 
 var server = app.listen(3000, function() {
